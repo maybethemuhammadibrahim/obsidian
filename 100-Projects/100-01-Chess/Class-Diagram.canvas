@@ -2,28 +2,24 @@
 	"nodes":[
 		{"id":"48e1332bff06c7b5","type":"text","text":"Chess In C++(OOP)","x":-210,"y":-260,"width":250,"height":60},
 		{"id":"ac123b0e7317caee","type":"text","text":"Classes\n","x":-210,"y":-80,"width":250,"height":50},
-		{"id":"0d820e75351c6165","type":"text","text":"Class For Each Piece\n","x":-740,"y":280,"width":250,"height":60},
-		{"id":"947a58d9391a7729","type":"file","file":"github/100-Projects/100-01-Chess/Pawn.md","x":-1160,"y":430,"width":250,"height":270},
-		{"id":"b45a8afa1450057b","type":"file","file":"github/100-Projects/100-01-Chess/King.md","x":-590,"y":430,"width":250,"height":270},
-		{"id":"1e6c983291b64898","type":"file","file":"github/100-Projects/100-01-Chess/Rook.md","x":-1160,"y":760,"width":250,"height":260},
-		{"id":"edf0c774d4d83fee","type":"file","file":"github/100-Projects/100-01-Chess/Knight.md","x":-880,"y":760,"width":250,"height":260},
-		{"id":"be13895473fe8c4c","type":"file","file":"github/100-Projects/100-01-Chess/Queen.md","x":-590,"y":760,"width":250,"height":260},
-		{"id":"c8f0e78216f3afc5","type":"file","file":"github/100-Projects/100-01-Chess/Bishop.md","x":-880,"y":430,"width":250,"height":270},
-		{"id":"7f322f1d00a7c7d9","x":-160,"y":500,"width":400,"height":400,"type":"file","file":"github/100-Projects/100-01-Chess/Player Class.md"},
-		{"id":"23b3f5023828a971","type":"text","text":"Class For Player","x":-85,"y":220,"width":250,"height":60},
-		{"id":"af1fcc2ec27dedfc","x":520,"y":250,"width":250,"height":50,"type":"text","text":"Class For Game/Board State"}
+		{"id":"2df958c7c18cef07","type":"file","file":"Game State Class.md","x":-20,"y":285,"width":480,"height":415},
+		{"id":"b45a8afa1450057b","type":"file","file":"github/100-Projects/100-01-Chess/King.md","x":-575,"y":700,"width":250,"height":270},
+		{"id":"be13895473fe8c4c","type":"file","file":"github/100-Projects/100-01-Chess/Queen.md","x":-575,"y":1030,"width":250,"height":260},
+		{"id":"1e6c983291b64898","type":"file","file":"github/100-Projects/100-01-Chess/Rook.md","x":-1145,"y":1030,"width":250,"height":260},
+		{"id":"c8f0e78216f3afc5","type":"file","file":"github/100-Projects/100-01-Chess/Bishop.md","x":-865,"y":700,"width":250,"height":270},
+		{"id":"edf0c774d4d83fee","type":"file","file":"github/100-Projects/100-01-Chess/Knight.md","x":-865,"y":1030,"width":250,"height":260},
+		{"id":"947a58d9391a7729","type":"file","file":"github/100-Projects/100-01-Chess/Pawn.md","x":-1145,"y":700,"width":250,"height":270},
+		{"id":"0bf052363d8b52dd","x":-865,"y":280,"width":375,"height":180,"type":"file","file":"Piece Abstract Class.md"}
 	],
 	"edges":[
 		{"id":"e5020a51b5d6ada6","fromNode":"48e1332bff06c7b5","fromSide":"bottom","toNode":"ac123b0e7317caee","toSide":"top"},
-		{"id":"8c4e6852efdbb64c","fromNode":"ac123b0e7317caee","fromSide":"bottom","toNode":"0d820e75351c6165","toSide":"top"},
-		{"id":"bd0eb8a46bb6e5ea","fromNode":"ac123b0e7317caee","fromSide":"bottom","toNode":"23b3f5023828a971","toSide":"top"},
-		{"id":"4af69449a9318abc","fromNode":"0d820e75351c6165","fromSide":"bottom","toNode":"947a58d9391a7729","toSide":"top"},
-		{"id":"1695d412ac0623b3","fromNode":"0d820e75351c6165","fromSide":"bottom","toNode":"c8f0e78216f3afc5","toSide":"top"},
-		{"id":"937cfc4f1cbf0ebd","fromNode":"0d820e75351c6165","fromSide":"bottom","toNode":"b45a8afa1450057b","toSide":"top"},
-		{"id":"efb2abe36edd32de","fromNode":"0d820e75351c6165","fromSide":"bottom","toNode":"be13895473fe8c4c","toSide":"top"},
-		{"id":"014cd3f8852194b3","fromNode":"0d820e75351c6165","fromSide":"bottom","toNode":"edf0c774d4d83fee","toSide":"top"},
-		{"id":"23d96bad56cea115","fromNode":"0d820e75351c6165","fromSide":"bottom","toNode":"1e6c983291b64898","toSide":"top"},
-		{"id":"32e08ff1aa801215","fromNode":"23b3f5023828a971","fromSide":"bottom","toNode":"7f322f1d00a7c7d9","toSide":"top"},
-		{"id":"e04ce9086e07281d","fromNode":"ac123b0e7317caee","fromSide":"bottom","toNode":"af1fcc2ec27dedfc","toSide":"top"}
+		{"id":"8c4e6852efdbb64c","fromNode":"ac123b0e7317caee","fromSide":"bottom","toNode":"0bf052363d8b52dd","toSide":"top"},
+		{"id":"4af69449a9318abc","fromNode":"0bf052363d8b52dd","fromSide":"bottom","toNode":"947a58d9391a7729","toSide":"top"},
+		{"id":"1695d412ac0623b3","fromNode":"0bf052363d8b52dd","fromSide":"bottom","toNode":"c8f0e78216f3afc5","toSide":"top"},
+		{"id":"937cfc4f1cbf0ebd","fromNode":"0bf052363d8b52dd","fromSide":"bottom","toNode":"b45a8afa1450057b","toSide":"top"},
+		{"id":"efb2abe36edd32de","fromNode":"0bf052363d8b52dd","fromSide":"bottom","toNode":"be13895473fe8c4c","toSide":"top"},
+		{"id":"014cd3f8852194b3","fromNode":"0bf052363d8b52dd","fromSide":"bottom","toNode":"edf0c774d4d83fee","toSide":"top"},
+		{"id":"23d96bad56cea115","fromNode":"0bf052363d8b52dd","fromSide":"bottom","toNode":"1e6c983291b64898","toSide":"top"},
+		{"id":"e04ce9086e07281d","fromNode":"ac123b0e7317caee","fromSide":"bottom","toNode":"2df958c7c18cef07","toSide":"top"}
 	]
 }
