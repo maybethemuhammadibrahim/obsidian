@@ -32,7 +32,26 @@
 |`!`, `&&`, `||`|
 
 ---
+- if a class has more than one data members, always make a temp object in operator overloading and return that object
+	e.x + - * / %
+- in case of ++ -- operator you can also return *this to just increment or decrement the object itself
+```c
+/ Overloading Pre-increment ++c
+    Complex operator ++ () {
+        ++real;
+        ++imag;
+        return *this;
+    }
 
+    // Overloading Post-increment c++
+    Complex operator ++ (int) {
+        Complex temp = *this;
+        real++;
+        imag++;
+        return temp;
+    }
+```
+/
 ## 🔸 Different Ways to Overload Operators
 
 A general rule:
