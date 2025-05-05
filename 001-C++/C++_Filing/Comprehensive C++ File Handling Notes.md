@@ -37,18 +37,6 @@ outputFile << "Hello, world!";  // Write text to file
 fstream file("data.txt", ios::in | ios::out);
 ```
 
-### Common Mistakes
-
-- **Not including the proper header files** (`<fstream>` for file streams)
-- **Forgetting to check if file opened successfully** before performing operations
-- **Using stream objects after they have been closed**
-
-### Best Practices
-
-- Always check if a file was successfully opened before using it
-- Close files explicitly when you're done with them
-- Use appropriate stream types based on your needs (input, output, or both)
-
 ## 2. File Functions & Stream Status Flags
 
 ### Key File Stream Functions
@@ -143,14 +131,14 @@ ofstream newFile("output.txt", ios::out | ios::trunc);
 
 ### Use Cases for Different Modes
 
-|Scenario|Recommended Mode Combination|
-|---|---|
-|Reading an existing text file|`ios::in`|
-|Creating/overwriting a text file|`ios::out`|
-|Reading a binary file|`ios::in \| ios::binary`|
-|Creating/overwriting a binary file|`ios::out \| ios::binary`|
-|Adding to an existing log file|`ios::out \| ios::app`|
-|Updating an existing file (read+write)|`ios::in \| ios::out`|
+| Scenario                               | Recommended Mode Combination |
+| -------------------------------------- | ---------------------------- |
+| Reading an existing text file          | `ios::in`                    |
+| Creating/overwriting a text file       | `ios::out`                   |
+| Reading a binary file                  | `ios::in \| ios::binary`     |
+| Creating/overwriting a binary file     | `ios::out \| ios::binary`    |
+| Adding to an existing log file         | `ios::out \| ios::app`       |
+| Updating an existing file (read+write) | `ios::in \| ios::out`        |
 
 ### Common Mistakes
 
@@ -169,11 +157,11 @@ ofstream newFile("output.txt", ios::out | ios::trunc);
 
 ### Basic Binary I/O Functions
 
-|Function|Description|Parameters|
-|---|---|---|
-|`write()`|Writes binary data to stream|`const char* buffer, streamsize size`|
-|`read()`|Reads binary data from stream|`char* buffer, streamsize size`|
-
+| Function  | Description                   | Parameters                            |     |
+| --------- | ----------------------------- | ------------------------------------- | --- |
+| `write()` | Writes binary data to stream  | `const char* buffer, streamsize size` |     |
+| `read()`  | Reads binary data from stream | `char* buffer, streamsize size`       |     |
+- Binary files are most easy to use with primitive data types (string is not a primitive data type).
 ### Writing and Reading Basic Types
 
 ```cpp
@@ -203,24 +191,32 @@ if (inFile.is_open()) {
 ```
 
 ### Handling Strings in Binary Files
+For writing strings in binary files we follow the following syntax
+```
+[size of the upcoming string] [string itself]
+```
 
 ```cpp
 // Helper functions for string handling in binary files
 void writeStringToFile(ofstream& file, const string& str) {
-    size_t length = str.length();
+    size_t length = str.length();//gets the length of string
     file.write(reinterpret_cast<char*>(&length), sizeof(length));
+    //writes the length
     file.write(str.c_str(), length);
+    //writes the string itself
 }
 
 string readStringFromFile(ifstream& file) {
     size_t length;
     file.read(reinterpret_cast<char*>(&length), sizeof(length));
+    //reads the length
     
-    char* buffer = new char[length + 1];
-    file.read(buffer, length);
+    char* buffer = new char[length + 1];//allocates memory for the upcoming stored string
+    
+    file.read(buffer, length);//reads the actual string
     buffer[length] = '\0';  // Null-terminate the string
     
-    string result(buffer);
+    string result(buffer);//converts char arr to C++ style string
     delete[] buffer;
     return result;
 }
@@ -263,6 +259,9 @@ public:
         size_t nameLength = name.length();
         file.write(reinterpret_cast<const char*>(&nameLength), sizeof(nameLength));
         file.write(name.c_str(), nameLength);
+        //---------------------------------
+        //also we can use the above made global functions as
+        writeStringToFile(file, name);
         
         // Write age and salary
         file.write(reinterpret_cast<const char*>(&age), sizeof(age));
@@ -379,7 +378,6 @@ int main() {
 ### Common Mistakes
 
 - **Forgetting to use `ios::binary` mode** when opening files for binary I/O
-- **Not handling endianness issues** when sharing binary files across different systems
 - **Incorrect use of `reinterpret_cast`** or forgetting it entirely
 - **Memory leaks** when dealing with dynamic memory for strings or arrays
 - **Not handling variable-length data** (like strings) properly
@@ -398,16 +396,19 @@ int main() {
 ### File Pointers and Their Roles
 
 - **Get Pointer (`g`)**: Controls the next location to be read from
+- g = input from file
+
 - **Put Pointer (`p`)**: Controls the next location where data will be written
+- p = output to file
 
 ### File Pointer Manipulation Functions
 
-|Function|Description|Parameters|
-|---|---|---|
-|`seekg()`|Moves the get (input) pointer|`streampos pos` or `streamoff off, ios::seekdir way`|
-|`seekp()`|Moves the put (output) pointer|`streampos pos` or `streamoff off, ios::seekdir way`|
-|`tellg()`|Returns the position of the get pointer|None|
-|`tellp()`|Returns the position of the put pointer|None|
+| Function  | Description                                          | Parameters                                           |
+| --------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `seekg()` | Moves the get (input) pointer                        | `streampos pos` or `streamoff off, ios::seekdir way` |
+| `seekp()` | Moves the put (output) pointer                       | `streampos pos` or `streamoff off, ios::seekdir way` |
+| `tellg()` | Returns the position of the get pointer in streampos | None                                                 |
+| `tellp()` | Returns the position of the put pointer              | None                                                 |
 
 ### Seek Directions
 
