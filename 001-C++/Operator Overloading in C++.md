@@ -51,7 +51,13 @@
         return temp;
     }
 ```
-/
+- **Return Type Matters**:
+    
+    - For left-associative operators, typically return a new object
+        
+    - For right-associative operators (like `=`), return a reference to allow chaining
+
+
 ## 🔸 Different Ways to Overload Operators
 
 A general rule:
