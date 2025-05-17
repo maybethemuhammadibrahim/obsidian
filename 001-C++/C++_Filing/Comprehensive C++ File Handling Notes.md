@@ -93,7 +93,7 @@ File modes can be combined using the bitwise OR operator (`|`).
 
 ```cpp
 // Open for both reading and writing in binary mode
-fstream file("data.bin", ios::in | ios::out | ios::binary);
+fstream file("data.bin", ios::in | ios::out | ios::binary);ifstream& file
 
 // Open for appending data
 ofstream appendFile("log.txt", ios::out | ios::app);

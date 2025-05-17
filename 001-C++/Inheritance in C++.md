@@ -110,7 +110,7 @@ public:
 #### 🧠 **Concept**:
 
 - If a function with the same name exists in the derived class, it **shadows** the base version.
-    
+    (even if it has different parameters[i.e is overloaded] or const keyword)
 - Overload resolution occurs **only** in the scope of the derived class first.
     
 
