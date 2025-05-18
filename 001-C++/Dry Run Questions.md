@@ -693,7 +693,3 @@ int main() {
         
     - Mismatched types: `int` and `const char*` → deduction fails for `T`.
         
-
----
-
-Would you like these questions in **quiz-style PDF** or formatted as a **practice worksheet with answers hidden**?
