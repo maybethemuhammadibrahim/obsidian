@@ -443,62 +443,6 @@ cout << "Updated record: ID=" << readRecord.id
      << ", Value=" << readRecord.value << endl;
 ```
 
-### Reading and Writing in Chunks
-
-```cpp
-// Reading a file in chunks
-void processLargeFile(const string& filename, size_t chunkSize) {
-    ifstream file(filename, ios::binary);
-    if (!file) {
-        cerr << "Failed to open file" << endl;
-        return;
-    }
-    
-    // Get file size
-    file.seekg(0, ios::end);
-    streamsize fileSize = file.tellg();
-    file.seekg(0, ios::beg);
-    
-    // Allocate buffer for chunk
-    char* buffer = new char[chunkSize];
-    
-    // Process file in chunks
-    streamsize bytesRemaining = fileSize;
-    while (bytesRemaining > 0) {
-        // Calculate size of next chunk
-        streamsize bytesToRead = min(bytesRemaining, static_cast<streamsize>(chunkSize));
-        
-        // Read chunk
-        file.read(buffer, bytesToRead);
-        streamsize bytesRead = file.gcount();
-        
-        // Process the chunk
-        cout << "Read " << bytesRead << " bytes" << endl;
-        // ... process data in buffer ...
-        
-        bytesRemaining -= bytesRead;
-    }
-    
-    delete[] buffer;
-    file.close();
-}
-```
-
-### Common Mistakes
-
-- **Forgetting to reset file pointers** before re-reading a file
-- **Using `seekg`/`seekp` with text files** (can cause issues with line endings)
-- **Incorrect calculations when seeking** in files with variable-sized records
-- **Not checking return values** of `tellg`/`tellp` for failure (-1)
-- **Assuming file pointer position directly corresponds to byte count** in text mode
-
-### Best Practices
-
-- Use binary mode when precise control over file positioning is needed
-- Always validate that seek operations succeeded before proceeding
-- When working with structured data, use fixed-size records when possible
-- Reset file pointers after reaching EOF if you plan to reuse the stream
-- Store file positions (using `tellg`/`tellp`) for later use when needed
 
 ## 6. Text File Handling
 
